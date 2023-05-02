@@ -1,0 +1,8 @@
+.idea
+.vs
+.vscode/settings.json
+build
+cmake-build*
+node_module*
+Client/node_module*
+Client/package-lock*

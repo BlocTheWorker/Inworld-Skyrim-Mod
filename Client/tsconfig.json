@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // Allow JavaScript files to be compiled
+    "allowJs": true,
+    // Allow dynamic imports and async functions
+    "esModuleInterop": true,
+    // Emit output files even if there are errors
+    "noEmitOnError": false,
+    // Skip type checking of declaration files
+    "skipLibCheck": true,
+    // Use the latest ECMAScript features
+    "target": "esnext",
+    // Use the latest module resolution algorithm
+    "moduleResolution": "node",
+    // Do not emit any comments in the output files
+    "removeComments": true,
+    // Do not check for implicit any types
+    "noImplicitAny": false,
+    // Do not enforce strict null checks
+    "strictNullChecks": false,
+    // Do not emit declarations for the output files
+    "declaration": false,
+    // Do not emit source maps for the output files
+    "sourceMap": false,
+    "resolveJsonModule":true
+  },
+  // Include all TypeScript and JavaScript files in the project
+  "include": ["**/*.ts", "**/*.js"]
+}
