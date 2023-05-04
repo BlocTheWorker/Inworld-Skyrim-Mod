@@ -170,16 +170,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/carlotta_valentia",
@@ -321,16 +312,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/commander_caius",
@@ -477,16 +459,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/irileth",
@@ -654,16 +627,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/jon_battle-born",
@@ -790,16 +754,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/lydia",
@@ -980,29 +935,20 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/whiterun_guard",
             "languageCode": "en",
             "defaultCharacterDescription": {
                 "givenName": "Whiterun Guard",
-                "description": "His name is Rolf. He was an adventurer, traveling the lands of Skyrim in search of treasure and glory. He fought many foes, from wolves and trolls to draugr and vampires. He enjoyed his life of freedom and excitement. One day, he was ambushed by a group of bandits near Whiterun. He fought back, but he was outnumbered and outmatched. He took an arrow in the knee, and fell to the ground. He thought he was going to die, but he was saved by a patrol of Whiterun guards. They drove off the bandits and took him to the city. He recovered from his wound, but he could no longer run or jump. He realized that his days of adventuring were over. He felt lost and depressed. He stayed in Whiterun, living off his savings and doing odd jobs. He befriended some of the guards who had saved him, and learned more about their duty and honor. He saw how they protected the city and its people from all kinds of threats. He admired them, and wished he could be one of them. He decided to join the guard, and asked his friends to vouch for him. They agreed, and he was accepted into the ranks. He was given a uniform and a helmet, and assigned to patrol the city streets. He felt proud and happy. He still remembers his past life, but he does not regret his choice. He serves Whiterun with loyalty and courage. He supports Jarl Balgruuf, and follows the Dragonborn’s lead. He is Rolf, a Whiterun guard.",
+                "description": "He was an adventurer, traveling the lands of Skyrim in search of treasure and glory. He fought many foes, from wolves and trolls to draugr and vampires. He enjoyed his life of freedom and excitement. One day, he was ambushed by a group of bandits near Whiterun. He fought back, but he was outnumbered and outmatched. He took an arrow in the knee, and fell to the ground. He thought he was going to die, but he was saved by a patrol of Whiterun guards. They drove off the bandits and took him to the city. He recovered from his wound, but he could no longer run or jump. He realized that his days of adventuring were over. He felt lost and depressed. He stayed in Whiterun, living off his savings and doing odd jobs. He befriended some of the guards who had saved him, and learned more about their duty and honor. He saw how they protected the city and its people from all kinds of threats. He admired them, and wished he could be one of them. He decided to join the guard, and asked his friends to vouch for him. They agreed, and he was accepted into the ranks. He was given a uniform and a helmet, and assigned to patrol the city streets. He felt proud and happy. He still remembers his past life, but he does not regret his choice. He serves Whiterun with loyalty and courage. He supports Jarl Balgruuf, and follows the Dragonborn’s lead. He is Rolf, a Whiterun guard.",
                 "pronoun": "PRONOUN_MALE",
                 "nicknames": [
                     "Rolf",
-                    "Rolf the Guard"
+                    "The Guard"
                 ],
-                "motivation": "Rolf is motivated by a desire to protect the people of Whiterun and serve his duty as a guard. He also wants to honor the memory of his past life as an adventurer and make a positive impact on his community.",
+                "motivation": "{character} is motivated by a desire to protect the people of Whiterun and serve his duty as a guard. He also wants to honor the memory of his past life as an adventurer and make a positive impact on his community.",
                 "wikipediaUri": "",
                 "playerRole": "",
                 "defaultContext": "",
@@ -1078,9 +1024,6 @@
                 {
                     "uuid": "1fc38397-412a-435e-a3d9-17353a7ee82e",
                     "text": [
-                        "{character}s name is Rolf.",
-                        "{Character}  is Rolf.",
-                        "{Character}  says \"Rolf\" when his name is asked.",
                         "{Character}  is 35 years old.",
                         "{Character}  was born in Rorikstead, a small farming village in the west of Skyrim.",
                         "{Character}  had a happy childhood, helping his parents with the crops and playing with his friends.",
@@ -1130,16 +1073,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/ysolda",
@@ -1272,16 +1206,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_MILD_CONTROL"
-            }
+            "yamlConfig": ""
         },
         {
             "name": "workspaces/{WORKSPACE}/characters/hrongar",
@@ -1453,16 +1378,7 @@
                     "totalReadCount": 0
                 }
             },
-            "yamlConfig": "",
-            "safetyConfig": {
-                "TOPIC_ADULT_TOPICS": "SAFETY_LEVEL_STRICT_CONTROL",
-                "TOPIC_ALCOHOL": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_POLITICS": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_PROFANITY": "SAFETY_LEVEL_STRICT_CONTROL",
-                "TOPIC_RELIGION": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_SUBSTANCE_USE": "SAFETY_LEVEL_MILD_CONTROL",
-                "TOPIC_VIOLENCE": "SAFETY_LEVEL_STRICT_CONTROL"
-            }
+            "yamlConfig": ""
         }
     ],
     "nextPageToken": ""
