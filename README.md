@@ -4,6 +4,9 @@
 # Inworld Skyrim Mod
 Inworld Skyrim Mod Source Code. This is a project that consists of three parts: a SKSE C++ plugin, Papyrus scripts, and a Typescript Node.js project. This mod aims to enhance your Skyrim experience by providing additional features and functionality. Follow the instructions below to set up and use the mod correctly.
 
+#### Note
+This is a SOURCE CODE. This is not a downloadable mod for players. This README assumes you have sufficient knowledge about C++ and Skyrim modding.
+
 ## Contents
 - [SKSE C++ Plugin](#skse-c-plugin)
 

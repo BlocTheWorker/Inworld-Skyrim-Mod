@@ -142,6 +142,9 @@ export default class InworldWorkspaceManager {
     }
     
     GetCharacterIdentifier(name){
+        if(name.includes("guard"))
+            name = "guard";
+        
         for(let i = 0; i < this.characterList.length; i++) {
             let character = this.characterList[i];
             let nameNormalized = character.name.toLowerCase().replace("_", " ");
