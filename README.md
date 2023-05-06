@@ -1,4 +1,9 @@
+# Demo Video
+[![Future of Elder Scrolls & RPG - Skyrim NPCs & Inworld AI (like GPT-4 for gaming)](https://tw.greywool.com/i/tJ98m.jpg)](https://youtu.be/d6sVWEu9HWU)
+See the Video for the demonstration if you are not here for the source code: 
+https://youtu.be/d6sVWEu9HWU
 
+---
 ![Source Code Banner](.repo_resources/logobanner.jpg)
 
 # Inworld Skyrim Mod
