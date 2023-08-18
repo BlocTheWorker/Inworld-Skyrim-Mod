@@ -21,6 +21,7 @@ Event OnInit()
     RegisterForModEvent("BLC_SubtitlePositionEvent", "SetPositionHandler")
     RegisterForModEvent("BLC_SubtitleToggleEvent", "VisibilityToggleHandler")
     RegisterForModEvent("BLC_SetFacialExpressionEvent", "SetFacialExpressionHandler") 
+    RegisterForModEvent("BLC_ClearFacialExpressionEvent", "ClearFacialExpressionHandler") 
     RegisterForModEvent("BLC_SetActorStopState", "SetActorStopHandler")
     RegisterForModEvent("BLC_SetActorMoveToPlayer", "SetActorMoveToPlayer")
 EndEvent  
@@ -58,7 +59,7 @@ Event SetActorMoveToPlayer(String eventName, String strArg, Float numArg, Form s
     Debug.SendAnimationEvent(subjectActor, "IdleStop")
     Debug.SendAnimationEvent(subjectActor, "IdleForceDefaultState")
 EndEvent
-
+ 
 Event ClearActorFixation(Actor subjectActor)
     subjectActor.ClearLookAt()
     subjectActor.ClearForcedMovement()
@@ -83,9 +84,8 @@ EndFunction
 
 ;; strArgs should be 1-2-3-
 Event SetFacialExpressionHandler(String eventName, String strArg, Float numArg, Form sender)
-    subjectActor.ClearExpressionOverride()
-    subjectActor.ResetExpressionOverrides()
     Actor subjectActor = sender as Actor
+    subjectActor.ClearExpressionOverride()
     Debug.Trace("Args: " + strArg)
     Debug.Trace("FormID" + subjectActor.GetFormID())
     subjectActor.ResetExpressionOverrides();
@@ -94,14 +94,31 @@ Event SetFacialExpressionHandler(String eventName, String strArg, Float numArg, 
     While (index < splitted.Length)
       String current = splitted[index]
       Int phonemeIndex = StringToActionIndexConverter(current)
-      subjectActor.SetExpressionPhoneme(phonemeIndex, numArg)
-      Float expressionVal = numArg
-      subjectActor.SetExpressionPhoneme(phonemeIndex, numArg)
-      Utility.Wait(0.002)
-      ClearPhoneme(subjectActor)
-      subjectActor.ResetExpressionOverrides()
+      ;subjectActor.SetExpressionPhoneme(phonemeIndex, 0.4)
+      ; Float expressionVal = numArg
+      Float strength = 0.1
+      While(strength < 0.51)
+        subjectActor.SetExpressionPhoneme(phonemeIndex, strength)
+        strength = strength + 0.1
+        Utility.Wait(numArg)
+      EndWhile
+      While(strength > 0)
+        subjectActor.SetExpressionPhoneme(phonemeIndex, strength)
+        strength = strength - 0.1
+        Utility.Wait(numArg)
+      EndWhile
+      ;ClearPhoneme(subjectActor)
+      ;subjectActor.ResetExpressionOverrides()
       index = index + 1
     EndWhile
+    ;ClearPhoneme(subjectActor)
+    subjectActor.ResetExpressionOverrides()
+EndEvent
+
+Event ClearFacialExpressionHandler(String eventName, String strArg, Float numArg, Form sender)
+    Actor subjectActor = sender as Actor
+    subjectActor.ClearExpressionOverride()
+    subjectActor.ResetExpressionOverrides();
     ClearPhoneme(subjectActor)
     subjectActor.ResetExpressionOverrides()
 EndEvent
@@ -149,7 +166,6 @@ Int Function StringToActionIndexConverter(string str)
         return 1
     EndIf
 EndFunction
-
 ; Required for hooking to widget  
 Event OniWantWidgetsReset(String eventName, String strArg, Float numArg, Form sender)
     If eventName == "iWantWidgetsReset"

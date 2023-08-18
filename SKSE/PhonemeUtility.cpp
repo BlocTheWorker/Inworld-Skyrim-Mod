@@ -1,18 +1,31 @@
-// PhonemeUtility.cpp
+﻿// PhonemeUtility.cpp
 #include "PhonemeUtility.h"
 
 PhonemeUtility* PhonemeUtility::instance = nullptr;
 
 PhonemeUtility::PhonemeUtility() {
-    phoneme_map = {{"Aah", 0},   {"BigAah", 1}, {"BMP", 2}, {"ChJSh", 3}, {"DST", 4}, {"Eee", 5},
-                   {"Eh", 6},    {"FV", 7},     {"I", 8},   {"K", 9},     {"N", 10},  {"Oh", 11},
-                   {"OohQ", 12}, {"R", 13},     {"Th", 14}, {"W", 15}};
+    phoneme_map = {
+        {"a", 0}, {"ə", 0},  {"ɚ", 0},  
+        {"aɪ", 1},  {"aʊ", 1},  {"æ", 1}, 
+        {"m", 2}, 
+        {"t", 3}, {"ʃ", 3},  {"z", 3},  {"j", 3},
+        {"d", 4},  {"ð", 4},  
+        {"i", 5},  
+        {"ɛ", 6},  {"ɐ", 6},  {"ʌ",6}, 
+        {"f", 7},  
+        {"ɪ", 8},  {"l", 8},  
+        {"k", 9},  
+        {"n", 10}, 
+        {"o", 11}, {"ɔ", 11}, 
+        {"u", 12}, {"ʊ", 12}, 
+        {"ɹ", 13}, 
+        {"θ", 14}, {"ʒ", 14}, 
+        {"w", 15}
+    };
 }
 
 PhonemeUtility::PhonemeUtility(const PhonemeUtility&) {}
-PhonemeUtility& PhonemeUtility::operator=(const PhonemeUtility&) {
-    return *this;
-}
+PhonemeUtility& PhonemeUtility::operator=(const PhonemeUtility&) { return *this; }
 PhonemeUtility::~PhonemeUtility() {}
 
 PhonemeUtility* PhonemeUtility::get_instance() {
@@ -35,36 +48,23 @@ std::string PhonemeUtility::generate_random_phonemes(const int num) {
 }
 
 // A function that takes a string and returns a string that maps that string to phonemes with "-" in between
-std::string PhonemeUtility::string_to_phonemes(const std::string& s) {
-    std::string result;                             // The result string
-    std::string word;                               // A temporary word to store each phoneme
-    for (char c : s) {                              // Loop through each character in the string
-        if (c == ' ' || c == '\n') {                // If the character is a space or a newline
-            if (!word.empty()) {                    // If the word is not empty
-                if (phoneme_map.count(word) > 0) {  // If the word is a valid phoneme
-                    if (!result.empty()) {          // If the result is not empty
-                        result += "-";              // Add a "-" to the result
-                    }
-                    result += std::to_string(phoneme_map[word]);  // Add the phoneme value to the result string
-                } else {                                          // If the word is not a valid phoneme
-                    std::cout << "Invalid phoneme: " << word << std::endl;  // Print an error message
-                }
-                word.clear();  // Clear the word
+std::string PhonemeUtility::string_to_phonemes(const std::string& phonemes) {
+    std::string result;
+    auto splitted = phonemes.substr(0, phonemes.size() / 5);
+
+    for (size_t i = 0; i < splitted.size(); i++) {
+        if (splitted[i] == '-') {
+            continue;  // skip the dash
+        }
+        std::string phoneme(1, splitted[i]);  // make a string from one character
+        auto it = phoneme_map.find(phoneme);
+        if (it != phoneme_map.end()) {
+            if (!result.empty()) {
+                result += '-';
             }
-        } else {        // If the character is not a space or a newline
-            word += c;  // Append the character to the word
+            result += std::to_string(it->second);
         }
     }
-    if (!word.empty()) {                    // If the word is not empty after the loop
-        if (phoneme_map.count(word) > 0) {  // If the word is a valid phoneme
-            if (!result.empty()) {          // If the result is not empty
-                result += "-";              // Add a "-" to the result
-            }
-            result += std::to_string(phoneme_map[word]);            // Add the phoneme value to the result string
-        } else {                                                    // If the word is not a valid phoneme
-            std::cout << "Invalid phoneme: " << word << std::endl;  // Print an error message
-        }
-        word.clear();  // Clear the word
-    }
-    return result;  // Return the result string
+
+    return result;
 }

@@ -1,15 +1,22 @@
 {
+  "name": "skyrim-inworld",
   "scripts": {
-    "start": "ts-node SkyrimClient.ts"
+    "start": "ts-node SkyrimClient.ts",
+    "build": "npx tsc && npx caxa --input . --exclude \".env\" \"*.log\" \"*.ts\" \"Inworld/*.ts\" \"package-lock.json\" \"World\" \".git\" \"*.exe\" --prepare-command \"tsc\" \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/jsbuild/SkyrimClient.js\" --output SkyrimClient.exe"
   },
+  "extends": "./tsconfig.json",
   "dependencies": {
     "@fastify/websocket": "^7.1.2",
-    "@inworld/nodejs-sdk": "^1.1.6",
+    "@inworld/nodejs-sdk": "^1.3.1",
     "axios": "^1.3.2",
     "dotenv": "^16.0.3",
-    "fastify": "^4.12.0"
+    "fastify": "^4.12.0",
+    "node-record-lpcm16": "^1.0.1",
+    "ws": "^8.13.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "ts-node": "^10.9.1"
-  }
+  },
+  "type": "module"
 }

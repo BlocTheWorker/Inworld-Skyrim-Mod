@@ -6,11 +6,17 @@ https://youtu.be/d6sVWEu9HWU
 ---
 ![Source Code Banner](.repo_resources/logobanner.jpg)
 
+
+# Are you looking for the mod?  [Go and download from nexusmods](https://www.nexusmods.com/skyrimspecialedition/mods/98481)
+
+Also see [Installation Guide and more information](https://bloctheworker.github.io/Inworld-Skyrim-Mod/)
+
 # Inworld Skyrim Mod
 Inworld Skyrim Mod Source Code. This is a project that consists of three parts: a SKSE C++ plugin, Papyrus scripts, and a Typescript Node.js project. This mod aims to enhance your Skyrim experience by providing additional features and functionality. Follow the instructions below to set up and use the mod correctly.
 
 #### Note
 This is a SOURCE CODE. This is not a downloadable mod for players. This README assumes you have sufficient knowledge about C++ and Skyrim modding.
+
 
 ## Contents
 - [SKSE C++ Plugin](#skse-c-plugin)
@@ -72,4 +78,4 @@ You will need the following:
 
 ## Adding More Characters
 System works in a way that it takes character name and searches that name in created characters before establishing connection. This means, if Ulfric Stormcloak isn't created in Inworld Workplace, then you won't be able to talk with him. What can you do? You can add this character to your list, and then, you will be able to use it. 
-You need to go to `Client\Templates\WorldBuilding` folder, find _**SkyrimCharacters.json**_ and add your character to this list. You can create your character on Inworld server, and press `F12` and get JSON from networking tab (to make life easier for you)
+You need to go to `Client\World\` folder, find _**SkyrimCharacters.json**_ and add your character to this list. You can create your character on Inworld server, and press `F12` and get JSON from networking tab (to make life easier for you)
