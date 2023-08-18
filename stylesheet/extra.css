@@ -1,0 +1,16 @@
+a {
+    --md-typeset-a-color: var(--md-accent-fg-color);
+    font-weight: bold
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: black;
+}
+
+::selection{background:#fa0;color:#fff;}
+:focus{outline:0;outline:none;}
+::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);background-color:#141D26!important;}
+::-webkit-scrollbar{width:4px!important;}
+::-webkit-scrollbar-thumb{background-color:#fa0!important;border-radius:0!important;}
+::-moz-selection {background: rgb(202, 135, 0) !important;color: #8798A5 !important;}
