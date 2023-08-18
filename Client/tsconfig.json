@@ -11,7 +11,7 @@
     // Use the latest ECMAScript features
     "target": "esnext",
     // Use the latest module resolution algorithm
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     // Do not emit any comments in the output files
     "removeComments": true,
     // Do not check for implicit any types
@@ -22,7 +22,8 @@
     "declaration": false,
     // Do not emit source maps for the output files
     "sourceMap": false,
-    "resolveJsonModule":true
+    "resolveJsonModule":true,
+    "outDir": "jsbuild"
   },
   // Include all TypeScript and JavaScript files in the project
   "include": ["**/*.ts", "**/*.js"]

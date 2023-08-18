@@ -9,17 +9,23 @@ endif()
 if(DEFINED ENV{SKYRIM_MODS_FOLDER} AND IS_DIRECTORY "$ENV{SKYRIM_MODS_FOLDER}")
     set(OUTPUT_FOLDER "$ENV{SKYRIM_MODS_FOLDER}/${PROJECT_NAME}")
 endif()
-
+ 
 find_package(CommonLibSSE CONFIG REQUIRED)
-add_commonlibsse_plugin(${PROJECT_NAME} SOURCES plugin.cpp FormUtil.cpp ScriptObject.cpp) # <--- specifies plugin.cpp
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23) # <--- use C++23 standard
+add_commonlibsse_plugin(${PROJECT_NAME} SOURCES plugin.cpp) # <--- specifies plugin.cpp
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23) # <--- use C++23 standard 
 target_precompile_headers(${PROJECT_NAME} PRIVATE PCH.h) # <--- PCH.h is required!
 
-find_package(cpr CONFIG REQUIRED)
+find_package(cpr CONFIG REQUIRED) 
 target_link_libraries(${PROJECT_NAME} PUBLIC cpr::cpr)
-
+ 
 find_package(nlohmann_json REQUIRED)
 target_link_libraries(${PROJECT_NAME} PUBLIC nlohmann_json::nlohmann_json)
+ 
+find_package(websocketpp REQUIRED)
+target_link_libraries(${PROJECT_NAME} PUBLIC websocketpp::websocketpp)
+
+find_package(Boost REQUIRED COMPONENTS random)
+target_link_libraries(${PROJECT_NAME} PUBLIC Boost::boost Boost::random)
 
 
 if(DEFINED OUTPUT_FOLDER)
