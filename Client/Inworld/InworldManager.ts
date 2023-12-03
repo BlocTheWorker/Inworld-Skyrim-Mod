@@ -41,7 +41,7 @@ export default class InworldClientManager {
             let id = this.workspaceManager.GetCharacterIdentifier(characterId);
             console.log(`Requested to talk with ${characterId} which corresponds to ${id} on database.`);
             (console as any).logToLog(`Requested to talk with ${characterId} which corresponds to ${id} on database.`)
-            if (! id) {
+            if (!id) {
                 let errorResult = `Cannot connect to ${id} or ${characterId}`;
                 throw errorResult
             }
