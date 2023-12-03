@@ -5,10 +5,11 @@ import * as fs from 'fs';
 const ALL_CHARACTERS = JSON.parse(fs.readFileSync(path.resolve("./World/SkyrimCharacters.json"), 'utf-8'));
 const SKYRIM_KNOWLEDGE = JSON.parse(fs.readFileSync(path.resolve("./World/SkyrimKnowledge.json"), 'utf-8'));
 
+// https://studio.inworld.ai/studio/v1/workspaces/{WORKSPACE}/common-knowledge?pageSize=20
 const WORKSPACE_NAME = process.env.INWORLD_WORKSPACE;
-const SHARED_KNOWLEDGE_URL: string = "https://studio.inworld.ai/v1alpha/workspaces/" + WORKSPACE_NAME + "/common-knowledges?pageSize=500"
-const CREATE_URI = "https://studio.inworld.ai/v1alpha/workspaces/" + WORKSPACE_NAME + "/characters?skipAutoCreate=true";
-const GET_CHARACTERS = "https://studio.inworld.ai/v1alpha/workspaces/" + WORKSPACE_NAME + "/characters";
+const SHARED_KNOWLEDGE_URL: string = "https://studio.inworld.ai/studio/v1/workspaces/" + WORKSPACE_NAME + "/common-knowledge?pageSize=500"
+const CREATE_URI = "https://studio.inworld.ai/studio/v1/workspaces/" + WORKSPACE_NAME + "/characters?skipAutoCreate=true";
+const GET_CHARACTERS = "https://studio.inworld.ai/studio/v1/workspaces/" + WORKSPACE_NAME + "/characters";
 
 export default class InworldWorkspaceManager {
     private loginManager;
@@ -25,8 +26,7 @@ export default class InworldWorkspaceManager {
         await this.SetupCommonKnowledge();
         await this.PopulateCharacters();
         await this.CreateMissingCharacters();
-        // refresh
-        await this.PopulateCharacters();
+        
     }
 
     private GetNameFromPath(path : string){
@@ -55,6 +55,7 @@ export default class InworldWorkspaceManager {
             if (!isExist) {
                 console.log(`${data.defaultCharacterDescription.givenName} does not exist. I'm requesting to create it.`);
                 (console as any).logToLog(`${data.defaultCharacterDescription.givenName} does not exist. I'm requesting to create it.`)
+                this.waitingCharacters.push(data.name)
                 this.CreateCharacter(data.name, data);
             } else {
                 console.log(`${
@@ -63,7 +64,6 @@ export default class InworldWorkspaceManager {
                 (console as any).logToLog(`${data.defaultCharacterDescription.givenName} exists, not updating.`)
             }
         }
-
     }
 
     private removeItem<T>(arr : Array < T >, value : T): Array < T > {
@@ -79,6 +79,12 @@ export default class InworldWorkspaceManager {
         this.waitingCharacters = this.removeItem(this.waitingCharacters, name);
         console.log(`${data.defaultCharacterDescription.givenName} is now ready to use.`);
         (console as any).logToLog(`${data.defaultCharacterDescription.givenName} is now ready to use.`)
+
+        if(this.waitingCharacters.length <= 0){
+            // refresh
+            console.log(`all created. refreshing all character data`);
+            await this.PopulateCharacters();
+        }
     }
 
     private async PopulateCharacters() {
@@ -95,36 +101,42 @@ export default class InworldWorkspaceManager {
         try {
             let headers = await this.GetHeader();
             delete characterData.safetyConfig;
-            characterData.commonKnowledges = [];
+            characterData.commonKnowledge = [];
             characterData.name = characterData.name.replace("{WORKSPACE}", WORKSPACE_NAME);
             let response = await axios.post(CREATE_URI, JSON.stringify(characterData), {headers: headers});
 
-            let checkUri = "https://studio.inworld.ai/v1alpha/" + response.data.name
+            let checkUri = "https://studio.inworld.ai/studio/v1/" + response.data.name
 
             let isDone = false;
             let nameFetched = ""
             while (!isDone) {
                 headers = await this.GetHeader();
                 let checkData = await axios.get(checkUri, {headers: headers});
-                isDone = checkData.data.done;
+                isDone = !!checkData.data.defaultCharacterDescription;
 
-                if (isDone && !!checkData.data.response && !!checkData.data.response.name) {
-                    nameFetched = checkData.data.response.name;
+                if (isDone && !!checkData.data.name) {
+                    nameFetched = checkData.data.name;
                     await this.internalDelay(500);
                 } else {
                     isDone = false;
-                    console.log(checkData)
+                    console.log("Currently we have: ",checkData)
                     await this.internalDelay(1000);
                 }
             }
 
             characterData.name = nameFetched;
-            this.SharedKnowledge.commonKnowledges.forEach(knowledge => {
-                characterData.commonKnowledges.push(knowledge.name)
+            this.SharedKnowledge.commonKnowledge.forEach(knowledge => {
+                characterData.commonKnowledge.push(knowledge.name)
             });
 
+            let factArr = []
+            characterData.facts[0].text.forEach( t => factArr.push({ text: t}) )
+            let personalKnowledge = { uuid: characterData.facts[0].uuid, facts: factArr }
+            delete characterData.facts;
+            characterData.personalKnowledge = personalKnowledge;
+
             headers = await this.GetHeader();
-            await axios.patch("https://studio.inworld.ai/v1alpha/" + characterData.name, JSON.stringify(characterData), {headers: headers});
+            await axios.patch("https://studio.inworld.ai/studio/v1/" + characterData.name, JSON.stringify(characterData), {headers: headers});
         } catch (e) {
             console.error(e)
         }
@@ -135,7 +147,7 @@ export default class InworldWorkspaceManager {
         let expectedList = (SKYRIM_KNOWLEDGE as any).list;
         for (let i = 0; i < expectedList.length; i++) {
             let singleKnowledge = expectedList[i];
-            let filtered = commonknowledgeList.commonKnowledges.filter(el => el.displayName == singleKnowledge.displayName);
+            let filtered = commonknowledgeList.commonKnowledge.filter(el => el.displayName == singleKnowledge.displayName);
             if (filtered.length == 0) {
                 console.log("Creating a new common knowledge");
                 (console as any).logToLog("Creating a new common knowledge.")
